@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldersgate Youth Service - Media Team Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .division-card {
+            transition: all 0.3s ease;
+        }
+        .division-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .division-card.selected {
+            border-color: #667eea;
+            background-color: #f0f4ff;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #667eea;
+            width: 24px;
+            height: 24px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-3">
+                    <i data-lucide="church" class="w-8 h-8 text-indigo-600"></i>
+                    <span class="font-bold text-xl text-gray-800">Aldersgate Youth</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-4 text-sm text-gray-600">
+                    <span>Media Team Registration</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative overflow-hidden py-12 sm:py-16">
+        <div class="absolute inset-0 z-0">
+            <img src="WhatsApp Image 2026-02-16 at 13.52.52.jpeg" alt="Youth worship background" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-indigo-900/50"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="mb-8 flex justify-center">
+                <img src="WhatsApp Image 2026-02-16 at 13.52.53.jpeg" alt="Youth Media Team" class="rounded-2xl shadow-2xl w-full max-w-2xl h-64 object-cover border-4 border-white/20">
+            </div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4 drop-shadow-md">
+                Join the Media Team 📹
+            </h1>
+            <p class="text-xl text-indigo-100 max-w-2xl mx-auto mb-8">
+                Use your creative talents to serve the Aldersgate Youth Service. 
+                We're looking for passionate individuals to help capture and share our story.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Form Container -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div class="glass-effect rounded-2xl shadow-2xl p-6 sm:p-10 fade-in">
+            
+            <form id="registrationForm" class="space-y-8">
+                
+                <!-- Personal Information Section -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i data-lucide="user" class="w-6 h-6 mr-2 text-indigo-600"></i>
+                        Personal Information
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                                placeholder="John Doe">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                                placeholder="john@example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                                placeholder="+1 (555) 000-0000">
+                        </div>
+                        
+                        <div>
+                            <label for="age" class="block text-sm font-medium text-gray-700 mb-2">Age / Grade *</label>
+                            <input type="text" id="age" name="age" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                                placeholder="e.g., 16 years / 11th Grade">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Division Selection -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i data-lucide="layout-grid" class="w-6 h-6 mr-2 text-indigo-600"></i>
+                        Select Your Division *
+                    </h2>
+                    <p class="text-gray-600 mb-4">Choose the team(s) you're interested in joining. You can select multiple divisions.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Camera & Video -->
+                        <div class="division-card cursor-pointer border-2 border-gray-200 rounded-xl overflow-hidden hover:border-indigo-300" onclick="toggleDivision(this, 'camera')">
+                            <div class="h-32 overflow-hidden">
+                                <img src="WhatsApp Image 2026-02-16 at 13.52.44.jpeg" alt="Camera and Video" class="w-full h-full object-cover opacity-90 hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <div class="p-5">
+                                <input type="checkbox" name="divisions" value="Camera & Video Division" id="div-camera" class="hidden">
+                                <div class="flex items-start space-x-4">
+                                    <div class="bg-red-100 p-3 rounded-lg flex-shrink-0">
+                                        <i data-lucide="video" class="w-6 h-6 text-red-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-gray-800">Camera & Video</h3>
+                                        <p class="text-sm text-gray-600 mt-1">Operate cameras, film services, and create video content for archives and highlights.</p>
+                                    </div>
+                                    <div class="check-icon hidden text-indigo-600 flex-shrink-0">
+                                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="division-card cursor-pointer border-2 border-gray-200 rounded-xl overflow-hidden hover:border-indigo-300" onclick="toggleDivision(this, 'social')">
+                            <div class="h-32 overflow-hidden">
+                                <img src="WhatsApp Image 2026-02-16 at 13.52.52 (1).jpeg" alt="Social Media" class="w-full h-full object-cover opacity-90 hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <div class="p-5">
+                                <input type="checkbox" name="divisions" value="Social Media Division" id="div-social" class="hidden">
+                                <div class="flex items-start space-x-4">
+                                    <div class="bg-blue-100 p-3 rounded-lg flex-shrink-0">
+                                        <i data-lucide="share-2" class="w-6 h-6 text-blue-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-gray-800">Social Media</h3>
+                                        <p class="text-sm text-gray-600 mt-1">Manage Instagram, Facebook, TikTok. Create posts, stories, and engage with our online community.</p>
+                                    </div>
+                                    <div class="check-icon hidden text-indigo-600 flex-shrink-0">
+                                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projection & Sound -->
+                        <div class="division-card cursor-pointer border-2 border-gray-200 rounded-xl overflow-hidden hover:border-indigo-300" onclick="toggleDivision(this, 'projection')">
+                            <div class="h-32 overflow-hidden">
+                                <img src="WhatsApp Image 2026-02-16 at 13.52.52 (2).jpeg" alt="Projection and Sound" class="w-full h-full object-cover opacity-90 hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <div class="p-5">
+                                <input type="checkbox" name="divisions" value="Projection & Sound Division" id="div-projection" class="hidden">
+                                <div class="flex items-start space-x-4">
+                                    <div class="bg-green-100 p-3 rounded-lg flex-shrink-0">
+                                        <i data-lucide="monitor" class="w-6 h-6 text-green-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-gray-800">Projection & Sound</h3>
+                                        <p class="text-sm text-gray-600 mt-1">Manage lyrics projection, sound mixing, microphones, and audio-visual equipment during services.</p>
+                                    </div>
+                                    <div class="check-icon hidden text-indigo-600 flex-shrink-0">
+                                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Design Team -->
+                        <div class="division-card cursor-pointer border-2 border-gray-200 rounded-xl overflow-hidden hover:border-indigo-300" onclick="toggleDivision(this, 'design')">
+                            <div class="h-32 overflow-hidden">
+                                <img src="WhatsApp Image 2026-02-16 at 13.52.51.jpeg" alt="Design Team" class="w-full h-full object-cover opacity-90 hover:scale-110 transition-transform duration-300">
+                            </div>
+                            <div class="p-5">
+                                <input type="checkbox" name="divisions" value="Design Team" id="div-design" class="hidden">
+                                <div class="flex items-start space-x-4">
+                                    <div class="bg-purple-100 p-3 rounded-lg flex-shrink-0">
+                                        <i data-lucide="palette" class="w-6 h-6 text-purple-600"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-gray-800">Design Team</h3>
+                                        <p class="text-sm text-gray-600 mt-1">Create graphics, flyers, banners, and visual materials for events and announcements.</p>
+                                    </div>
+                                    <div class="check-icon hidden text-indigo-600 flex-shrink-0">
+                                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="divisionError" class="text-red-500 text-sm mt-2 hidden">Please select at least one division.</p>
+                </div>
+
+                <!-- Youth Team Image -->
+                <div class="my-8 rounded-2xl overflow-hidden shadow-lg relative">
+                    <img src="WhatsApp Image 2026-02-16 at 13.42.53.jpeg" alt="Youth Team in Action" class="w-full h-56 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20"></div>
+                </div>
+
+                <!-- Experience & Skills -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i data-lucide="zap" class="w-6 h-6 mr-2 text-indigo-600"></i>
+                        Experience & Skills
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label for="experience" class="block text-sm font-medium text-gray-700 mb-2">Experience Level</label>
+                            <select id="experience" name="experience" 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all">
+                                <option value="">Select your experience level...</option>
+                                <option value="Beginner">Beginner - eager to learn!</option>
+                                <option value="Intermediate">Intermediate - some experience</option>
+                                <option value="Advanced">Advanced - very experienced</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="skills" class="block text-sm font-medium text-gray-700 mb-2">Relevant Skills or Previous Experience</label>
+                            <textarea id="skills" name="skills" rows="3"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                                placeholder="Tell us about any relevant skills, software you know (Photoshop, Premiere Pro, etc.), or previous media experience..."></textarea>
+                        </div>
+
+                        <div>
+                            <label for="whyJoin" class="block text-sm font-medium text-gray-700 mb-2">Why do you want to join the Media Team? *</label>
+                            <textarea id="whyJoin" name="whyJoin" required rows="4"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                                placeholder="Share your motivation, what you hope to learn, and how you want to contribute..."></textarea>
+                        </div>
+
+                        <div>
+                            <label for="availability" class="block text-sm font-medium text-gray-700 mb-2">Availability *</label>
+                            <select id="availability" name="availability" required
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all">
+                                <option value="">Select your availability...</option>
+                                <option value="Weekly">Weekly - Every Sunday</option>
+                                <option value="Bi-weekly">Bi-weekly - Every other Sunday</option>
+                                <option value="Monthly">Monthly - Once a month</option>
+                                <option value="Flexible">Flexible - As needed</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4">
+                    <button type="submit" id="submitBtn"
+                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transform transition-all duration-200 hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-indigo-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="btnText">Submit Registration</span>
+                        <div id="btnLoader" class="loader hidden"></div>
+                        <i data-lucide="arrow-right" id="btnIcon" class="w-5 h-5"></i>
+                    </button>
+                    <p class="text-center text-sm text-gray-500 mt-4">
+                        By submitting, you agree to serve with dedication and attend necessary training sessions.
+                    </p>
+                </div>
+            </form>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="successMessage" class="hidden text-center py-12">
+                <div class="mb-6">
+                    <div class="mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="check" class="w-10 h-10 text-green-600"></i>
+                    </div>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Registration Submitted! 🎉</h2>
+                <p class="text-gray-600 mb-6 text-lg">
+                    Thank you for your interest in joining the Aldersgate Youth Service Media Team.
+                </p>
+                <p class="text-gray-600 mb-8">
+                    We've received your application and will contact you at <span id="confirmationEmail" class="font-semibold text-indigo-600"></span> within 3-5 business days.
+                </p>
+                <button onclick="resetForm()" 
+                    class="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+                    Submit Another Response
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <i data-lucide="church" class="w-6 h-6"></i>
+                <span class="text-lg font-semibold">Aldersgate Youth Service</span>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; 2024 Aldersgate Youth Media Team. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Division toggle function
+        function toggleDivision(element, divisionId) {
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            const checkIcon = element.querySelector('.check-icon');
+            
+            checkbox.checked = !checkbox.checked;
+            
+            if (checkbox.checked) {
+                element.classList.add('selected');
+                checkIcon.classList.remove('hidden');
+            } else {
+                element.classList.remove('selected');
+                checkIcon.classList.add('hidden');
+            }
+        }
+        
+        // Form submission handler - WhatsApp Integration
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loader
+            const btnText = document.getElementById('btnText');
+            const btnLoader = document.getElementById('btnLoader');
+            const btnIcon = document.getElementById('btnIcon');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            btnText.textContent = 'Opening WhatsApp...';
+            btnLoader.classList.remove('hidden');
+            btnIcon.classList.add('hidden');
+            submitBtn.disabled = true;
+            
+            // Get form values
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const age = document.getElementById('age').value;
+            
+            // Get selected divisions
+            const divisions = [];
+            document.querySelectorAll('input[name="divisions"]:checked').forEach(function(checkbox) {
+                divisions.push(checkbox.value);
+            });
+            
+            // Validate at least one division is selected
+            if (divisions.length === 0) {
+                document.getElementById('divisionError').classList.remove('hidden');
+                btnText.textContent = 'Submit Registration';
+                btnLoader.classList.add('hidden');
+                btnIcon.classList.remove('hidden');
+                submitBtn.disabled = false;
+                return;
+            } else {
+                document.getElementById('divisionError').classList.add('hidden');
+            }
+            
+            const experience = document.getElementById('experience').value;
+            const skills = document.getElementById('skills').value;
+            const whyJoin = document.getElementById('whyJoin').value;
+            const availability = document.getElementById('availability').value;
+            
+            // Format message for WhatsApp
+            let message = `*New Media Team Registration* 📹\n\n`;
+            message += `*Personal Information*\n`;
+            message += `Name: ${fullName}\n`;
+            message += `Email: ${email}\n`;
+            message += `Phone: ${phone}\n`;
+            message += `Age/Grade: ${age}\n\n`;
+            message += `*Selected Divisions*\n`;
+            message += `${divisions.join(', ')}\n\n`;
+            message += `*Experience & Skills*\n`;
+            message += `Experience Level: ${experience || 'Not specified'}\n`;
+            message += `Skills: ${skills || 'None specified'}\n\n`;
+            message += `*Why Join:*\n${whyJoin}\n\n`;
+            message += `*Availability:* ${availability}`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // WhatsApp API URL - Using Ghana number format (233 + number without leading 0)
+            // Original number: 0574168196 -> International: 233574168196
+            const whatsappNumber = '233574168196';
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappURL, '_blank');
+            
+            // Show success message
+            document.getElementById('confirmationEmail').textContent = email;
+            document.getElementById('registrationForm').classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+            document.getElementById('successMessage').classList.add('fade-in');
+            
+            // Reset button state
+            btnText.textContent = 'Submit Registration';
+            btnLoader.classList.add('hidden');
+            btnIcon.classList.remove('hidden');
+            submitBtn.disabled = false;
+            
+            // Re-initialize lucide icons for the success message
+            lucide.createIcons();
+        });
+        
+        // Reset form function
+        function resetForm() {
+            document.getElementById('registrationForm').reset();
+            document.getElementById('registrationForm').classList.remove('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('fade-in');
+            
+            // Reset division cards visual state
+            document.querySelectorAll('.division-card').forEach(card => {
+                card.classList.remove('selected');
+                const checkIcon = card.querySelector('.check-icon');
+                if (checkIcon) checkIcon.classList.add('hidden');
+            });
+            
+            // Reset checkboxes
+            document.querySelectorAll('input[name="divisions"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
